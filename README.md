@@ -13,6 +13,5 @@ The bundle includes syntax highlighting, the ability to compile or evaluate Clos
 
 Patches for additions are always welcome.
 
-![screenshot](http://i.imgur.com/UxQ6e.png)
+![screenshot](http://i.imgur.com/8Pep8.png)
 
-If your TextMate.app is having trouble finding the `coffee` command, remember that [TextMate doesn't inherit your regular PATH](http://wiki.macromates.com/Troubleshooting/TextMateAndThePath).
