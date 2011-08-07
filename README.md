@@ -7,7 +7,7 @@ Installation:
 
     mkdir -p ~/Library/Application\ Support/TextMate/Bundles
     cd ~/Library/Application\ Support/TextMate/Bundles
-    git clone git://github.com/anvie/SoyTemplate SoyTemplate.tmbundle
+    git clone git://github.com/anvie/SoyTemplate.git SoyTemplate.tmbundle
 
 The bundle includes syntax highlighting, the ability to compile or evaluate Closure template inline, convenient symbol listing for functions, and a number of expando snippets.
 
