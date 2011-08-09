@@ -105,6 +105,35 @@
 					<key>name</key>
 					<string>variable.parameter.soy</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
+					<key>name</key>
+					<string>string.other.soy</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[\{\}]</string>
+					<key>name</key>
+					<string>meta.soy.brache</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>meta.text.single-quote</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\$[\w_\.]+?</string>
+					<key>name</key>
+					<string>variable.parameter.soy</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
