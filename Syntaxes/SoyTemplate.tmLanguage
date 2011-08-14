@@ -44,7 +44,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(namespace|and|true|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
+			<string>\b(namespace|not|and|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
 			<key>name</key>
 			<string>keyword.control.soy</string>
 		</dict>
