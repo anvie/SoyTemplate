@@ -72,6 +72,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#html_tag</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>$self</string>
 				</dict>
 			</array>
@@ -120,29 +124,118 @@
 			</array>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>'</string>
-			<key>end</key>
-			<string>'</string>
-			<key>name</key>
-			<string>meta.text.single-quote</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>match</key>
-					<string>\$[\w_\.]+?</string>
-					<key>name</key>
-					<string>variable.parameter.soy</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>[\{\}]</string>
 			<key>name</key>
 			<string>meta.soy.brache</string>
 		</dict>
 	</array>
+	<key>repository</key>
+	<dict>
+		<key>double_quoted_string</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>"</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.soy</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>"</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.soy</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.double.soy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>.+?</string>
+							<key>name</key>
+							<string>constant.character.escape.soy</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>html_tag</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>&lt;</string>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>tag.html</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#double_quoted_string</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#single_quoted_string</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>single_quoted_string</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>'</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.soy</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>'</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.soy</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.single.soy</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>.+?</string>
+							<key>name</key>
+							<string>constant.character.escape.soy</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 	<key>scopeName</key>
 	<string>source.soy</string>
 	<key>uuid</key>

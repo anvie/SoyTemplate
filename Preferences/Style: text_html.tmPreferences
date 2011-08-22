@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Style: text.html</string>
 	<key>scope</key>
-	<string>meta.text</string>
+	<string>constant.character.escape.soy</string>
 	<key>settings</key>
 	<dict>
 		<key>background</key>
