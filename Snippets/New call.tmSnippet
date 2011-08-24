@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{call .${1:funcName}${2: data="$3"}${4: /}}</string>
+	<key>name</key>
+	<string>New call</string>
+	<key>tabTrigger</key>
+	<string>call</string>
+	<key>uuid</key>
+	<string>EDFC9DFC-E4F4-4299-BEDC-113BA2A5F687</string>
+</dict>
+</plist>

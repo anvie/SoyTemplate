@@ -16,12 +16,6 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>\$[\w_\.]+</string>
-			<key>name</key>
-			<string>variable.parameter.soy</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
 			<key>name</key>
 			<string>string.other.soy</string>
@@ -44,7 +38,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(namespace|not|and|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
+			<string>\b(namespace|not|and|switch|case|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
 			<key>name</key>
 			<string>keyword.control.soy</string>
 		</dict>
@@ -70,6 +64,10 @@
 			<string>meta.tmpl</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#parameter</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#html_tag</string>
@@ -110,10 +108,8 @@
 					<string>variable.parameter.soy</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
-					<key>name</key>
-					<string>string.other.soy</string>
+					<key>include</key>
+					<string>#itl_message</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -162,6 +158,14 @@
 					<key>patterns</key>
 					<array>
 						<dict>
+							<key>include</key>
+							<string>#itl_message</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#parameter</string>
+						</dict>
+						<dict>
 							<key>match</key>
 							<string>.+?</string>
 							<key>name</key>
@@ -186,6 +190,14 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#itl_message</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#parameter</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#double_quoted_string</string>
 						</dict>
 						<dict>
@@ -193,6 +205,30 @@
 							<string>#single_quoted_string</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>itl_message</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
+					<key>name</key>
+					<string>string.other.soy</string>
+				</dict>
+			</array>
+		</dict>
+		<key>parameter</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\$[\w_\.]+</string>
+					<key>name</key>
+					<string>variable.parameter.soy</string>
 				</dict>
 			</array>
 		</dict>
@@ -225,6 +261,14 @@
 					<string>string.quoted.single.soy</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#itl_message</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#parameter</string>
+						</dict>
 						<dict>
 							<key>match</key>
 							<string>.+?</string>
