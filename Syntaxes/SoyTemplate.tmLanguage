@@ -16,15 +16,15 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
-			<key>name</key>
-			<string>string.other.soy</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.soy</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(namespace|not|and|switch|case|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
+			<key>name</key>
+			<string>keyword.control.soy</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -35,12 +35,6 @@
 			<string>\*/|\-\-&gt;</string>
 			<key>name</key>
 			<string>comment.block.soy</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(namespace|not|and|switch|case|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
-			<key>name</key>
-			<string>keyword.control.soy</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -64,6 +58,14 @@
 			<string>meta.tmpl</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#html_comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#itl_message</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#parameter</string>
@@ -172,6 +174,22 @@
 							<string>constant.character.escape.soy</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>html_comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>&lt;\!\-\-</string>
+					<key>contentName</key>
+					<string>commment.block.preprocessor</string>
+					<key>end</key>
+					<string>\-\-&gt;</string>
+					<key>name</key>
+					<string>comment.block.soy</string>
 				</dict>
 			</array>
 		</dict>
