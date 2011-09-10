@@ -231,8 +231,10 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>\{msg.*?\}[\w\W]+?\{/msg\}</string>
+					<key>begin</key>
+					<string>\{msg.*?\}</string>
+					<key>end</key>
+					<string>\{/msg\}</string>
 					<key>name</key>
 					<string>string.other.soy</string>
 				</dict>
