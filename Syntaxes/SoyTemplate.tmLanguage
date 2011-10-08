@@ -15,16 +15,14 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>include</key>
+			<string>#keywords</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.soy</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(namespace|not|and|switch|case|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
-			<key>name</key>
-			<string>keyword.control.soy</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -168,6 +166,10 @@
 							<string>#parameter</string>
 						</dict>
 						<dict>
+							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
 							<key>match</key>
 							<string>.+?</string>
 							<key>name</key>
@@ -216,6 +218,10 @@
 						</dict>
 						<dict>
 							<key>include</key>
+							<string>#keywords</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#double_quoted_string</string>
 						</dict>
 						<dict>
@@ -237,6 +243,18 @@
 					<string>\{/msg\}</string>
 					<key>name</key>
 					<string>string.other.soy</string>
+				</dict>
+			</array>
+		</dict>
+		<key>keywords</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\b(namespace|not|and|switch|case|sp|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
+					<key>name</key>
+					<string>keyword.control.soy</string>
 				</dict>
 			</array>
 		</dict>
@@ -288,6 +306,10 @@
 						<dict>
 							<key>include</key>
 							<string>#parameter</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
 						</dict>
 						<dict>
 							<key>match</key>
