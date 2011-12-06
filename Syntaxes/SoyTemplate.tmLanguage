@@ -252,7 +252,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(namespace|not|and|switch|case|default|sp|true|false|if|else|elseif|param|foreach|ifempty|call|in)\b</string>
+					<string>\b(namespace|not|and|switch|case|default|sp|true|false|if|else|elseif|param|for|range|foreach|ifempty|call|in)\b</string>
 					<key>name</key>
 					<string>keyword.control.soy</string>
 				</dict>
