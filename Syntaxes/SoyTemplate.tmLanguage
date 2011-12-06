@@ -7,7 +7,7 @@
 		<string>soy</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>\{template\s*\.\w+\s*\}</string>
+	<string>\{template\s*\.\w+[^\}]*\}</string>
 	<key>foldingStopMarker</key>
 	<string>\{\s*/\s*template\s*\}</string>
 	<key>name</key>
@@ -88,7 +88,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\{template\s*\.(\w+)\s*\}</string>
+			<string>\{template\s*\.(\w+)[^\}]*\}</string>
 			<key>name</key>
 			<string>meta.function.soy</string>
 		</dict>
