@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>&lt;table border="${1:0}"${2: cellspacing="${3:5}" cellpadding="${4:5}"}&gt;
+	&lt;tr&gt;&lt;th&gt;${5:Header}&lt;/th&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;${0:Data}&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</string>
+	<key>name</key>
+	<string>HTML Table</string>
+	<key>uuid</key>
+	<string>5E9D4D94-FB05-447C-90C7-0BBFF34B6797</string>
+</dict>
+</plist>

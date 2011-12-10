@@ -7,7 +7,7 @@
 		<string>soy</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>\{template\s*\.\w+[^\}]*\}</string>
+	<string>\{template\s*\.\w+\s*\}</string>
 	<key>foldingStopMarker</key>
 	<string>\{\s*/\s*template\s*\}</string>
 	<key>name</key>
@@ -16,23 +16,13 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#keywords</string>
+			<string>#soy_comment</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.soy</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>/\*|&lt;!\-\-</string>
-			<key>contentName</key>
-			<string>comment.block.preprocessor</string>
-			<key>end</key>
-			<string>\*/|\-\-&gt;</string>
-			<key>name</key>
-			<string>comment.block.soy</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -58,11 +48,11 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#html_comment</string>
+					<string>#itl_message</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#itl_message</string>
+					<string>#enclosed_keyword</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -70,11 +60,15 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#html_tag</string>
+					<string>$self</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>$self</string>
+					<string>#html_comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#html_tag</string>
 				</dict>
 			</array>
 		</dict>
@@ -88,7 +82,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\{template\s*\.(\w+)[^\}]*\}</string>
+			<string>\{template\s*\.(\w+)\s*\}</string>
 			<key>name</key>
 			<string>meta.function.soy</string>
 		</dict>
@@ -159,6 +153,10 @@
 					<array>
 						<dict>
 							<key>include</key>
+							<string>#soy_variable</string>
+						</dict>
+						<dict>
+							<key>include</key>
 							<string>#itl_message</string>
 						</dict>
 						<dict>
@@ -166,14 +164,35 @@
 							<string>#parameter</string>
 						</dict>
 						<dict>
-							<key>include</key>
-							<string>#keywords</string>
-						</dict>
-						<dict>
 							<key>match</key>
 							<string>.+?</string>
 							<key>name</key>
 							<string>constant.character.escape.soy</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>enclosed_keyword</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>end</key>
+					<string>}</string>
+					<key>name</key>
+					<string>soy.expr</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#soy_variable</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#keywords</string>
 						</dict>
 					</array>
 				</dict>
@@ -227,6 +246,14 @@
 						<dict>
 							<key>include</key>
 							<string>#single_quoted_string</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#enclosed_keywords</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#soy_variable</string>
 						</dict>
 					</array>
 				</dict>
@@ -318,6 +345,44 @@
 							<string>constant.character.escape.soy</string>
 						</dict>
 					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>soy_comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>contentName</key>
+					<string>comment.block.preprocessor</string>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment.block.soy</string>
+				</dict>
+			</array>
+		</dict>
+		<key>soy_variable</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\$[\w_\.]+</string>
+					<key>name</key>
+					<string>variable.parameter.soy</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#itl_message</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[\{\}]</string>
+					<key>name</key>
+					<string>meta.soy.brache</string>
 				</dict>
 			</array>
 		</dict>
