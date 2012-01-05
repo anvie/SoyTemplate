@@ -20,6 +20,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\bnamespace\b</string>
+			<key>name</key>
+			<string>keyword.control.soy</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(//).*$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-slash.soy</string>
@@ -279,7 +285,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(namespace|not|and|switch|case|default|sp|true|false|if|else|elseif|param|for|range|foreach|ifempty|call|in)\b</string>
+					<string>\b(not|and|switch|case|default|sp|true|false|if|else|elseif|param|for|range|foreach|ifempty|call|in)\b</string>
 					<key>name</key>
 					<string>keyword.control.soy</string>
 				</dict>
