@@ -8,6 +8,8 @@
     <array>
         <string>soy</string>
     </array>
+    <key>firstLineMatch</key>
+    <string>\{\s*namespace\b</string>
     <key>foldingStartMarker</key>
     <string>\{\s*template\s+[^\}]*\}</string>
     <key>foldingStopMarker</key>
