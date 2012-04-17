@@ -11,6 +11,7 @@
         <key>symbolTransformation</key>
         <string>
             s/^(\w+)/  id: $1/;  # HTML elements with id attributes.
+            s/^\{\s*(\$\w+)(\s*\|\s*id)\}$/  id: $1/;  # HTML elements with variable id attributes.
             s/^\{\s*\/.*//;  # Do not show closing {/template} tags.
         </string>
     </dict>
