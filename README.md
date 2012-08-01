@@ -34,4 +34,11 @@ cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages &&
 git clone git://github.com/anvie/SoyTemplate.git SoyTemplate
 ```
 
+For Sublime Text 2 on Windows 7 using Cygwin:
+
+```sh
+cd /cygdrive/c/Users/bbuchanan/AppData/Roaming/Sublime\ Text\ 2/Packages/ && git clone git://github.com/anvie/SoyTemplate.git SoyTemplate
+```
+
+
 ![screenshot](http://i.imgur.com/Kss0o.png)
