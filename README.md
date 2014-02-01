@@ -41,3 +41,6 @@ cd /cygdrive/c/Users/$USER/AppData/Roaming/Sublime\ Text\ 2/Packages/ && git clo
 ```
 
 ![screenshot](http://i.imgur.com/Kss0o.png)
+
+
+[![Donation](https://pledgie.com/campaigns/23970.png)](https://pledgie.com/campaigns/23970)
