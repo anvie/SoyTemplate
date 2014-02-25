@@ -40,6 +40,22 @@ For Sublime Text 2 on Windows 7 using Cygwin:
 cd /cygdrive/c/Users/$USER/AppData/Roaming/Sublime\ Text\ 2/Packages/ && git clone git://github.com/anvie/SoyTemplate.git SoyTemplate
 ```
 
+## Sublime Text 3
+
+### Instalation
+```sh
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/ &&
+git clone git://github.com/anvie/SoyTemplate.git SoyTemplate &&
+zip -r SoyTemplate.sublime-package SoyTemplate &&
+rm -rf SoyTemplate
+```
+- Restart Sublime Text
+- Open Soy file
+- Optional CMD+SHIFT+P
+- Set Syntax: SoyTemplate
+
+---------------------------------------
+
 ![screenshot](http://i.imgur.com/Kss0o.png)
 
 
