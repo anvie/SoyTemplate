@@ -1,6 +1,6 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
-comment: SoyTemplate
-name: SoyTemplate
+comment: Soy
+name: Soy
 scopeName: source.soy
 fileTypes: [soy]
 uuid: C56846DE-CB9A-4DB5-9D38-DC417DEA4D5F

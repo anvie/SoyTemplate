@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>SoyTemplate</string>
+	<string>Soy</string>
 	<key>fileTypes</key>
 	<array>
 		<string>soy</string>
@@ -15,7 +15,7 @@
 	<key>foldingStopMarker</key>
 	<string>\{\s*/\s*template\s*\}</string>
 	<key>name</key>
-	<string>SoyTemplate</string>
+	<string>Soy</string>
 	<key>patterns</key>
 	<array>
 		<dict>
