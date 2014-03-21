@@ -1,0 +1,333 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+comment: SoyTemplate
+name: SoyTemplate
+scopeName: source.soy
+fileTypes: [soy]
+uuid: C56846DE-CB9A-4DB5-9D38-DC417DEA4D5F
+
+patterns:
+- include: '#template'
+
+- include: '#if'
+
+- include: '#comment-line'
+
+- include: '#comment-block'
+
+- include: '#comment-doc'
+
+- include: '#call'
+
+- include: '#css'
+
+- include: '#param'
+
+- include: '#print'
+
+- include: '#msg'
+
+- include: '#for'
+
+- include: '#foreach'
+
+- include: '#switch'
+
+- include: '#tag'
+
+- include: text.html.basic
+
+repository:
+  attribute-lookup:
+    begin: (\[)
+    beginCaptures:
+      '1': {name: punctuation.definition.attribute-lookup.begin.soy}
+    end: (\])
+    endCaptures:
+      '1': {name: punctuation.definition.attribute-lookup.end.soy}
+    patterns:
+    - include: '#variable'
+    - include: '#function'
+    - include: '#operator'
+    - include: '#number'
+    - include: '#primitive'
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+
+  call:
+    name: meta.tag.call.soy
+    begin: (\{/?)\s*(call|delcall)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+    - name: variable.parameter.soy
+      match: (?<=call|delcall)\s+[\.\w]+
+    - match: \b(data)\s*(=)
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+
+  comment-block:
+    name: comment.block.soy
+    begin: (/\*)(?!\*)
+    beginCaptures:
+      '1': {name: punctuation.definition.comment.begin.soy}
+    end: (\*/)
+    endCaptures:
+      '1': {name: punctuation.definition.comment.end.soy}
+
+  comment-doc:
+    name: comment.block.documentation.soy
+    begin: (/\*\*)(?!/)
+    beginCaptures:
+      '1': {name: punctuation.definition.comment.begin.soy}
+    end: (\*/)
+    endCaptures:
+      '1': {name: punctuation.definition.comment.end.soy}
+    patterns:
+    - match: (@param|@param\?)\s+(\w+)
+      captures:
+        '1': {name: support.type.soy}
+        '2': {name: variable.parameter.soy}
+
+  comment-line:
+    name: comment.line.double-slash.soy
+    match: \s+(//).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.soy}
+
+  css:
+    name: meta.tag.css.soy
+    begin: (\{/?)\s*(css)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - name: support.constant.soy
+      match: \b(LITERAL|REFERENCE|BACKEND_SPECIFIC|GOOG)\b
+
+  for:
+    name: meta.tag.for.soy
+    begin: (\{/?)\s*(for)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - name: keyword.operator.soy
+      match: \bin\b
+    - name: support.function.soy
+      match: \brange\b
+    - include: '#variable'
+    - include: '#number'
+    - include: '#primitive'
+
+  foreach:
+    name: meta.tag.foreach.soy
+    begin: (\{/?)\s*(foreach)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - name: keyword.operator.soy
+      match: \bin\b
+    - include: '#variable'
+
+  function:
+    name: support.function.soy
+    match: \b(isFirst|isLast|index|hasData|length|keys|round|floor|ceiling|min|max|randomInt)\b
+
+  if:
+    name: meta.tag.if.soy
+    begin: (\{/?)\s*(if|elseif)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#variable'
+    - include: '#operator'
+    - include: '#function'
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+
+  msg:
+    name: meta.tag.msg.soy
+    begin: (\{/?)\s*(msg)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+    - match: \b(meaning|desc)\s*(=)
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+
+  namespace:
+    match: (namespace|delpackage)\s+([\w\.]+)
+    captures:
+      '1': {name: entity.name.tag.soy}
+      '2': {name: variable.parameter.soy}
+
+  number:
+    name: constant.numeric
+    match: '[\d]+'
+
+  operator:
+    name: keyword.operator.soy
+    match: '==|!=|\band\b|\bor\b|\bnot\b|-|\+|(?<!\{)/|\?:'
+
+  param:
+    name: meta.tag.param.soy
+    begin: (\{/?)\s*(param)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#variable'
+    - match: \b([\w]*)\s*(:)?
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+
+  primitive:
+    name: constant.language.soy
+    match: \b(null|false|true)\b
+
+  print:
+    name: meta.tag.print.soy
+    begin: (\{/?)\s*(print)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#variable'
+    - include: '#print-parameter'
+    - include: '#number'
+    - include: '#primitive'
+    - include: '#attribute-lookup'
+
+  print-parameter:
+    patterns:
+    - name: keyword.operator.soy
+      match: \|
+    - name: variable.parameter.soy
+      match: noAutoescape|id|escapeHtml|escapeJs|insertWorkBreaks|truncate
+
+  special-character:
+    name: support.constant.soy
+    match: (\bsp\b|\bnil\b|\\r|\\n|\\t|\blb\b|\brb\b)
+
+  string-quoted-double:
+    name: string.quoted.double
+    match: '"[^"]*"'
+
+  string-quoted-single:
+    name: string.quoted.single
+    match: "'[^']*'"
+
+  switch:
+    name: meta.tag.switch.soy
+    begin: (\{/?)\s*(switch|case)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#variable'
+    - include: '#function'
+    - include: '#number'
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+
+  tag:
+    begin: (\{)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#namespace'
+    - include: '#variable'
+    - include: '#special-character'
+    - include: '#tag-simple'
+    - include: '#function'
+    - include: '#operator'
+    - include: '#attribute-lookup'
+    - include: '#number'
+    - include: '#primitive'
+    - include: '#print-parameter'
+
+  tag-simple:
+    name: entity.name.tag.soy
+    match: (?<=\{|\{/)\s*(literal|else|ifempty|default)\s*(?=\})
+
+  template:
+    name: meta.tag.template.soy
+    begin: (\{/?)\s*(template|deltemplate)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - match: (?<=template|deltemplate)\s+([\.\w]+)
+      captures:
+        '1': {name: entity.name.function.soy}
+    - match: \b(private)\s*(=)\s*("true"|"false")
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+        '3': {name: string.quoted.double.soy}
+    - match: \b(private)\s*(=)\s*('true'|'false')
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+        '3': {name: string.quoted.single.soy}
+    - match: \b(autoescape)\s*(=)\s*("true"|"false"|"contextual")
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+        '3': {name: string.quoted.double.soy}
+    - match: \b(autoescape)\s*(=)\s*('true'|'false'|'contextual')
+      captures:
+        '1': {name: entity.other.attribute-name.soy}
+        '2': {name: keyword.operator.soy}
+        '3': {name: string.quoted.single.soy}
+
+  variable:
+    name: variable.other.soy
+    match: \$[\w\.]+
+firstLineMatch: \{\s*namespace\b
+foldingStartMarker: \{\s*template\s+[^\}]*\}
+foldingStopMarker: \{\s*/\s*template\s*\}
