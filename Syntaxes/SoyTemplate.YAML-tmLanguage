@@ -97,7 +97,7 @@ repository:
 
   comment-line:
     name: comment.line.double-slash.soy
-    match: \s+(//).*$\n?
+    match: \s*(//).*$\n?
     captures:
       '1': {name: punctuation.definition.comment.soy}
 
