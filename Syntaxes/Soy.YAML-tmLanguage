@@ -245,11 +245,7 @@ repository:
     endCaptures:
       '1': {name: punctuation.definition.tag.end.soy}
     patterns:
-    - include: '#variable'
-    - include: '#operator'
-    - include: '#function'
-    - include: '#string'
-
+    - include: '#expression'
 
   msg:
     name: meta.tag.msg.soy
