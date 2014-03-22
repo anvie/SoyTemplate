@@ -114,6 +114,10 @@ repository:
     - name: support.constant.soy
       match: \b(LITERAL|REFERENCE|BACKEND_SPECIFIC|GOOG)\b
 
+  escaped-char:
+    name: constant.character.escape
+    match: '\\.'
+
   for:
     name: meta.tag.for.soy
     begin: (\{/?)\s*(for)\b
@@ -246,11 +250,17 @@ repository:
 
   string-quoted-double:
     name: string.quoted.double
-    match: '"[^"]*"'
+    begin: '"'
+    end: '"'
+    patterns:
+    - include: '#escaped-char'
 
   string-quoted-single:
     name: string.quoted.single
-    match: "'[^']*'"
+    begin: "'"
+    end: "'"
+    patterns:
+    - include: '#escaped-char'
 
   switch:
     name: meta.tag.switch.soy

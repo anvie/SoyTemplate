@@ -323,6 +323,13 @@
 				</dict>
 			</array>
 		</dict>
+		<key>escaped-char</key>
+		<dict>
+			<key>match</key>
+			<string>\\.</string>
+			<key>name</key>
+			<string>constant.character.escape</string>
+		</dict>
 		<key>for</key>
 		<dict>
 			<key>begin</key>
@@ -714,17 +721,35 @@
 		</dict>
 		<key>string-quoted-double</key>
 		<dict>
-			<key>match</key>
-			<string>"[^"]*"</string>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
 			<key>name</key>
 			<string>string.quoted.double</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped-char</string>
+				</dict>
+			</array>
 		</dict>
 		<key>string-quoted-single</key>
 		<dict>
-			<key>match</key>
-			<string>'[^']*'</string>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
 			<key>name</key>
 			<string>string.quoted.single</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#escaped-char</string>
+				</dict>
+			</array>
 		</dict>
 		<key>switch</key>
 		<dict>
