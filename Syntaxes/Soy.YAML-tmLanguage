@@ -30,6 +30,8 @@ patterns:
 
 - include: '#foreach'
 
+- include: '#let'
+
 - include: '#switch'
 
 - include: '#tag'
@@ -238,6 +240,18 @@ repository:
   if:
     name: meta.tag.if.soy
     begin: (\{/?)\s*(if|elseif)\b
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (\})
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#expression'
+
+  let:
+    name: meta.tag.let.soy
+    begin: (\{/?)\s*(let)\b
     beginCaptures:
       '1': {name: punctuation.definition.tag.begin.soy}
       '2': {name: entity.name.tag.soy}

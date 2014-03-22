@@ -68,6 +68,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#let</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#switch</string>
 		</dict>
 		<dict>
@@ -713,6 +717,43 @@
 			</dict>
 			<key>name</key>
 			<string>meta.tag.if.soy</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#expression</string>
+				</dict>
+			</array>
+		</dict>
+		<key>let</key>
+		<dict>
+			<key>begin</key>
+			<string>(\{/?)\s*(let)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.soy</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.soy</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.soy</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.tag.let.soy</string>
 			<key>patterns</key>
 			<array>
 				<dict>
