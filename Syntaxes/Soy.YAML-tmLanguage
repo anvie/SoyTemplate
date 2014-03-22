@@ -161,10 +161,10 @@ repository:
     name: string.quoted.double.soy
     begin: '"'
     beginCaptures:
-      '0': {name: punctuation.definition.string.begin.html}
+      '0': {name: punctuation.definition.string.begin.soy}
     end: '"'
     endCaptures:
-      '0': {name: punctuation.definition.string.end.html}
+      '0': {name: punctuation.definition.string.end.soy}
     patterns:
     - include: '#embedded-code'
 
@@ -172,10 +172,10 @@ repository:
     name: string.quoted.single.soy
     begin: "'"
     beginCaptures:
-      '0': {name: punctuation.definition.string.begin.html}
+      '0': {name: punctuation.definition.string.begin.soy}
     end: "'"
     endCaptures:
-      '0': {name: punctuation.definition.string.end.html}
+      '0': {name: punctuation.definition.string.end.soy}
     patterns:
     - include: '#embedded-code'
 
