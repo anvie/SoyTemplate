@@ -54,8 +54,7 @@ repository:
     - include: '#operator'
     - include: '#number'
     - include: '#primitive'
-    - include: '#string-quoted-single'
-    - include: '#string-quoted-double'
+    - include: '#string'
 
   call:
     name: meta.tag.call.soy
@@ -67,8 +66,7 @@ repository:
     endCaptures:
       '1': {name: punctuation.definition.tag.end.soy}
     patterns:
-    - include: '#string-quoted-single'
-    - include: '#string-quoted-double'
+    - include: '#string'
     - name: variable.parameter.soy
       match: (?<=call|delcall)\s+[\.\w]+
     - match: \b(data)\s*(=)
@@ -246,8 +244,7 @@ repository:
     - include: '#variable'
     - include: '#operator'
     - include: '#function'
-    - include: '#string-quoted-single'
-    - include: '#string-quoted-double'
+    - include: '#string'
 
 
   msg:
@@ -260,8 +257,7 @@ repository:
     endCaptures:
       '1': {name: punctuation.definition.tag.end.soy}
     patterns:
-    - include: '#string-quoted-single'
-    - include: '#string-quoted-double'
+    - include: '#string'
     - match: \b(meaning|desc)\s*(=)
       captures:
         '1': {name: entity.other.attribute-name.soy}
@@ -328,6 +324,11 @@ repository:
     name: support.constant.soy
     match: (\bsp\b|\bnil\b|\\r|\\n|\\t|\blb\b|\brb\b)
 
+  string:
+    patterns:
+    - include: '#string-quoted-single'
+    - include: '#string-quoted-double'
+
   string-quoted-double:
     name: string.quoted.double
     begin: '"'
@@ -355,8 +356,7 @@ repository:
     - include: '#variable'
     - include: '#function'
     - include: '#number'
-    - include: '#string-quoted-single'
-    - include: '#string-quoted-double'
+    - include: '#string'
 
   tag:
     begin: (\{)

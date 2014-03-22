@@ -135,11 +135,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-quoted-single</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double</string>
+					<string>#string</string>
 				</dict>
 			</array>
 		</dict>
@@ -176,11 +172,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#string-quoted-single</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double</string>
+					<string>#string</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -727,11 +719,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-quoted-single</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double</string>
+					<string>#string</string>
 				</dict>
 			</array>
 		</dict>
@@ -768,11 +756,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#string-quoted-single</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double</string>
+					<string>#string</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -964,6 +948,20 @@
 			<key>name</key>
 			<string>support.constant.soy</string>
 		</dict>
+		<key>string</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#string-quoted-single</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-quoted-double</string>
+				</dict>
+			</array>
+		</dict>
 		<key>string-quoted-double</key>
 		<dict>
 			<key>begin</key>
@@ -1041,11 +1039,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#string-quoted-single</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#string-quoted-double</string>
+					<string>#string</string>
 				</dict>
 			</array>
 		</dict>
