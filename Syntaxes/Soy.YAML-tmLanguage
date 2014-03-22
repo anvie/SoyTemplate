@@ -49,12 +49,7 @@ repository:
     endCaptures:
       '1': {name: punctuation.definition.attribute-lookup.end.soy}
     patterns:
-    - include: '#variable'
-    - include: '#function'
-    - include: '#operator'
-    - include: '#number'
-    - include: '#primitive'
-    - include: '#string'
+    - include: '#expression'
 
   call:
     name: meta.tag.call.soy
@@ -194,6 +189,15 @@ repository:
   escaped-char:
     name: constant.character.escape
     match: '\\.'
+
+  expression:
+    patterns:
+    - include: '#variable'
+    - include: '#function'
+    - include: '#operator'
+    - include: '#number'
+    - include: '#primitive'
+    - include: '#string'
 
   for:
     name: meta.tag.for.soy
