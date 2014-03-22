@@ -289,7 +289,7 @@ repository:
 
   operator:
     name: keyword.operator.soy
-    match: '==|!=|\band\b|\bor\b|\bnot\b|-|\+|(?<!\{)/|\?|:'
+    match: '==|!=|<=|>=|\band\b|\bor\b|\bnot\b|-|\+|\*|\/|(?<!\{)/|\?|:'
 
   param:
     name: meta.tag.param.soy

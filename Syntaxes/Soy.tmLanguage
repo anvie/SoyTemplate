@@ -844,7 +844,7 @@
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>==|!=|\band\b|\bor\b|\bnot\b|-|\+|(?&lt;!\{)/|\?|:</string>
+			<string>==|!=|&lt;=|&gt;=|\band\b|\bor\b|\bnot\b|-|\+|\*|\/|(?&lt;!\{)/|\?|:</string>
 			<key>name</key>
 			<string>keyword.operator.soy</string>
 		</dict>
