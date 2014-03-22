@@ -463,7 +463,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.html</string>
+					<string>punctuation.definition.string.begin.soy</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -473,7 +473,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.html</string>
+					<string>punctuation.definition.string.end.soy</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -495,7 +495,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.begin.html</string>
+					<string>punctuation.definition.string.begin.soy</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -505,7 +505,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.string.end.html</string>
+					<string>punctuation.definition.string.end.soy</string>
 				</dict>
 			</dict>
 			<key>name</key>
