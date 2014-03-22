@@ -34,6 +34,10 @@ patterns:
 
 - include: '#tag'
 
+- include: '#element-any'
+
+- include: '#element-other'
+
 - include: text.html.basic
 
 repository:
@@ -114,6 +118,81 @@ repository:
     - name: support.constant.soy
       match: \b(LITERAL|REFERENCE|BACKEND_SPECIFIC|GOOG)\b
 
+  element-any:
+    name: meta.tag.any.soy
+    begin: (<)([a-zA-Z0-9:]++)(?=[^>]*></\2>)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.soy}
+    end: (>)(<)(/)(\2)(>)
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+      '2': {name: punctuation.definition.tag.begin.soy meta.scope.between-tag-pair.soy}
+      '3': {name: punctuation.definition.tag.begin.soy}
+      '4': {name: entity.name.tag.soy}
+      '5': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#element-contents'
+
+  element-attribute:
+    name: entity.other.attribute-name.soy
+    match: \b([a-zA-Z\-:]+)
+
+  element-contents:
+    patterns:
+    - include: '#element-string-quoted-double'
+    - include: '#element-string-quoted-single'
+    - include: '#embedded-code'
+    - include: '#element-attribute'
+
+  element-other:
+    name: meta.tag.other.soy
+    begin: (</?)([a-zA-Z0-9:]+)
+    beginCaptures:
+      '1': {name: punctuation.definition.tag.begin.soy}
+      '2': {name: entity.name.tag.other.soy}
+    end: (>)
+    endCaptures:
+      '1': {name: punctuation.definition.tag.end.soy}
+    patterns:
+    - include: '#element-contents'
+
+  element-string-quoted-double:
+    name: string.quoted.double.soy
+    begin: '"'
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.html}
+    end: '"'
+    endCaptures:
+      '0': {name: punctuation.definition.string.end.html}
+    patterns:
+    - include: '#embedded-code'
+
+  element-string-quoted-single:
+    name: string.quoted.single.soy
+    begin: "'"
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.html}
+    end: "'"
+    endCaptures:
+      '0': {name: punctuation.definition.string.end.html}
+    patterns:
+    - include: '#embedded-code'
+
+  embedded-code:
+    patterns:
+    - include: '#escaped-char'
+    - include: '#if'
+    - include: '#call'
+    - include: '#css'
+    - include: '#param'
+    - include: '#print'
+    - include: '#msg'
+    - include: '#for'
+    - include: '#foreach'
+    - include: '#switch'
+    - include: '#tag'
+
   escaped-char:
     name: constant.character.escape
     match: '\\.'
@@ -169,6 +248,7 @@ repository:
     - include: '#function'
     - include: '#string-quoted-single'
     - include: '#string-quoted-double'
+
 
   msg:
     name: meta.tag.msg.soy
