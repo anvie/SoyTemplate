@@ -178,6 +178,9 @@ repository:
     patterns:
     - include: '#escaped-char'
     - include: '#if'
+    - include: '#comment-line'
+    - include: '#comment-block'
+    - include: '#comment-doc'
     - include: '#call'
     - include: '#css'
     - include: '#param'

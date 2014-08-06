@@ -508,6 +508,18 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#comment-line</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment-block</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comment-doc</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#call</string>
 				</dict>
 				<dict>
