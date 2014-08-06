@@ -142,7 +142,7 @@ repository:
 
   element-other:
     name: meta.tag.other.soy
-    begin: (</?)([a-zA-Z0-9:]+)
+    begin: (</?)([a-zA-Z0-9:]*)
     beginCaptures:
       '1': {name: punctuation.definition.tag.begin.soy}
       '2': {name: entity.name.tag.other.soy}
