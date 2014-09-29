@@ -15,5 +15,5 @@ Install “Soy” using Sublime [Package Control](https://sublime.wbond.net/).
 ```sh
 mkdir -p ~/Library/Application\ Support/TextMate/Bundles &&
 cd ~/Library/Application\ Support/TextMate/Bundles &&
-git clone git://github.com/Obvious/soy-sublime.git Soy.tmbundle
+git clone git://github.com/Medium/soy-sublime.git Soy.tmbundle
 ```
