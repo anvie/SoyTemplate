@@ -137,6 +137,9 @@ repository:
     patterns:
     - include: '#element-string-quoted-double'
     - include: '#element-string-quoted-single'
+    - include: '#comment-line'
+    - include: '#comment-block'
+    - include: '#comment-doc'
     - include: '#embedded-code'
     - include: '#element-attribute'
 
@@ -178,9 +181,6 @@ repository:
     patterns:
     - include: '#escaped-char'
     - include: '#if'
-    - include: '#comment-line'
-    - include: '#comment-block'
-    - include: '#comment-doc'
     - include: '#call'
     - include: '#css'
     - include: '#param'
